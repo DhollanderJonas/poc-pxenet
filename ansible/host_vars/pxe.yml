@@ -43,6 +43,6 @@ pxeserver_ip: 172.19.0.2
 pxeserver_images:
   - name: udpcast
     label: UDPCast
-    kernel_url: http://ftp.belnet.be/download.fedora.redhat.com/linux/releases/22/Server/x86_64/os/isolinux/vmlinuz
-    initrd_url: http://ftp.belnet.be/download.fedora.redhat.com/linux/releases/22/Server/x86_64/os/isolinux/initrd.img
+    kernel_url: http://ftp.belnet.be/download.fedora.redhat.com/linux/releases/24/Server/x86_64/os/isolinux/vmlinuz
+    initrd_url: http://ftp.belnet.be/download.fedora.redhat.com/linux/releases/24/Server/x86_64/os/isolinux/initrd.img
     default: true
