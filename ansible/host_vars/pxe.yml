@@ -1,0 +1,48 @@
+# host_vars/server4038.yml
+# vi: ft=yaml
+---
+
+#
+# Role bertvv.rh-base
+#
+
+# Firewall
+
+rhbase_firewall_allow_services:
+  - dhcp
+  - nfs
+  - tftp
+
+rhbase_motd: true
+
+#
+# Role dhcp
+#
+dhcp_domain: 'netlab.hogent.be'
+
+dhcp_subnets:
+  - ip: 172.19.0.0
+    netmask: 255.255.0.0
+    default_lease_time: 14400 # 4h
+    max_lease_time: 28800 # 8h
+    routers: 172.19.255.254
+    domain_name_servers: 172.19.0.2
+    range_begin: 172.19.10.1
+    range_end: 172.19.19.255
+
+#
+# Role TFTP
+#
+tftp_root_directory: /srv/tftproot
+
+#
+# Role pxeserver
+#
+
+pxeserver_ip: 172.19.0.2
+pxeserver_images:
+  - name: udpcast
+    label: UDPCast
+    kernel_url: http://ftp.belnet.be/download.fedora.redhat.com/linux/releases/22/Server/x86_64/os/isolinux/vmlinuz
+    initrd_url: http://ftp.belnet.be/download.fedora.redhat.com/linux/releases/22/Server/x86_64/os/isolinux/initrd.img
+    default: true

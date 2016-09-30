@@ -1,9 +1,9 @@
 # site.yml
 ---
-- hosts: srv001
+- hosts: pxe
   become: true
-  roles: []
-
-- hosts: srv002
-  become: true
-  roles: []
+  roles:
+    - bertvv.rh-base
+    - bertvv.dhcp
+    - bertvv.tftp
+    - bertvv.pxeserver

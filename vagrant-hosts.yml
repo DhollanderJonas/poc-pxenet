@@ -25,20 +25,7 @@
 #
 # [1] http://docs.vagrantup.com/v2/synced-folders/basic_usage.html
 ---
-- name: srv001
-  ip: 192.168.56.10
-
-- name: srv002
-  box: bertvv/fedora24
-  synced_folders:
-    - src: test
-      dest: /tmp/test
-    - src: www
-      dest: /var/www/html
-      options:
-        :create: true
-        :owner: root
-        :group: root
-        :mount_options: ['dmode=0755', 'fmode=0644']
-
+- name: pxe
+  ip: 172.19.0.2
+  netmask: 255.255.0.0
 
