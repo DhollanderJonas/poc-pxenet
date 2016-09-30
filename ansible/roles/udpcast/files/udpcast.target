@@ -1,0 +1,9 @@
+[Unit]
+Description=UDPCast Mode
+Requires=sysinit.target udpcast.service
+After=sysinit.target udpcast.service
+AllowIsolate=yes
+
+[Install]
+Alias=kbrequest.target
+

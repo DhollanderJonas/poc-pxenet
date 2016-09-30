@@ -1,0 +1,43 @@
+# roles/udpcast/tasks/main.yml
+---
+
+- name: Remove root password
+  user:
+    name: root
+    password: ''
+  tags:
+    - udpcast
+
+- name: Install UDPCast script
+  copy:
+    src: udpcast.sh
+    dest: /usr/local/sbin/udpcast
+    mode: '0755'
+    owner: root
+    group: root
+  tags:
+    - udpcast
+
+- name: Install Systemd udpcast.service file
+  copy:
+    src: udpcast.service
+    dest: /usr/lib/systemd/system/
+    mode: '0644'
+  tags:
+    - udpcast
+
+- name: Install Systemd udpcast.target file
+  copy:
+    src: udpcast.target
+    dest: /usr/lib/systemd/system/
+    mode: '0644'
+  tags:
+    - udpcast
+
+- name: Ensure ‘wants’ directory exists
+  file:
+    path: /usr/lib/systemd/system/udpcast.target.wants
+    state: directory
+    mode: '0755'
+  tags:
+    - udpcast

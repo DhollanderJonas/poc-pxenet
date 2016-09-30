@@ -7,3 +7,10 @@
     - bertvv.dhcp
     - bertvv.tftp
     - bertvv.pxeserver
+
+- hosts: udpcast
+  become: true
+  roles:
+    - bertvv.rh-base
+    - udpcast
+

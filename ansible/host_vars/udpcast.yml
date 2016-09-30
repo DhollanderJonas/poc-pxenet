@@ -1,0 +1,16 @@
+# host_vars/udpcast.yml
+---
+
+rhbase_install_packages:
+  - lzop
+  - rsync
+  - udpcast
+
+rhbase_remove_packages:
+  - man-db
+  - man-pages
+
+rhbase_selinux_state: disabled
+
+rhbase_stop_services:
+  - systemd-update-utmp

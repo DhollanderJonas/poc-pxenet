@@ -29,3 +29,8 @@
   ip: 172.19.0.2
   netmask: 255.255.0.0
 
+- name: udpcast
+  ip: 172.19.0.27
+  adapter_type: public
+  box: bertvv/fedora24
+  netmask: 255.255.0.0

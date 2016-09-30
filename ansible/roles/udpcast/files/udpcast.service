@@ -1,0 +1,22 @@
+[Unit]
+Description=UDPCast
+DefaultDependencies=no
+Conflicts=shutdown.target
+After=sysinit.target plymouth-start.service
+Before=shutdown.target
+
+[Service]
+Environment=HOME=/root
+WorkingDirectory=/root
+ExecStartPre=-/bin/plymouth quit
+ExecStart=-/usr/local/sbin/udpcast
+ExecStopPost=-/bin/echo -e 'You can now log in to a shell. Type "journalctl -xb" to view\\nsystem logs, "systemctl reboot" to reboot, "systemctl default" or ^D to\\nboot into default mode.'
+ExecStopPost=-/bin/sh -c "/usr/sbin/sulogin; /usr/bin/systemctl --fail --no-block default"
+Type=idle
+StandardInput=tty-force
+StandardOutput=inherit
+StandardError=inherit
+KillMode=process
+IgnoreSIGPIPE=no
+SendSIGHUP=yes
+
