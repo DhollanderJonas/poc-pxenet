@@ -5,6 +5,7 @@ rhbase_install_packages:
   - lzop
   - rsync
   - udpcast
+  - python-firewall
 
 rhbase_remove_packages:
   - man-db
